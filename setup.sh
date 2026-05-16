@@ -28,12 +28,10 @@ mkdir -p /opt/remnanode
 if [ ! -f /opt/remnanode/docker-compose.yml ]; then
   echo ""
   echo "=============================================="
-  echo "  Open another terminal and run:"
-  echo "    nano /opt/remnanode/docker-compose.yml"
-  echo "  Paste your docker-compose content, save,"
-  echo "  then come back here and press ENTER."
+  echo "  Paste your docker-compose content below,"
+  echo "  save (Ctrl+S), then exit (Ctrl+X)."
   echo "=============================================="
-  read -r -p "Press ENTER when docker-compose.yml is ready..."
+  nano /opt/remnanode/docker-compose.yml
 fi
 
 cd /opt/remnanode
