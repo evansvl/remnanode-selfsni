@@ -24,15 +24,19 @@ DOMAIN="${DOMAIN:-steel.domain.com}"
 # ========== RemnaNode ==========
 echo ">>> Setting up RemnaNode..."
 mkdir -p /opt/remnanode
-cd /opt/remnanode
 
-if [ ! -f docker-compose.yml ]; then
-  echo "Create /opt/remnanode/docker-compose.yml manually, paste your content, then press Enter to continue..."
-  read -r _
-else
-  echo "docker-compose.yml already exists."
+if [ ! -f /opt/remnanode/docker-compose.yml ]; then
+  echo ""
+  echo "=============================================="
+  echo "  Open another terminal and run:"
+  echo "    nano /opt/remnanode/docker-compose.yml"
+  echo "  Paste your docker-compose content, save,"
+  echo "  then come back here and press ENTER."
+  echo "=============================================="
+  read -r -p "Press ENTER when docker-compose.yml is ready..."
 fi
 
+cd /opt/remnanode
 docker compose up -d
 
 # ========== SelfSteel / Caddy ==========
@@ -118,5 +122,5 @@ echo ""
 echo "=== Done ==="
 echo "RemnaNode: /opt/remnanode"
 echo "SelfSteel: /opt/selfsteel"
-echo "Domain:   $DOMAIN"
-echo "Port:     8443"
+echo "Domain:    $DOMAIN"
+echo "Port:      8443"
